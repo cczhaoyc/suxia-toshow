@@ -1,0 +1,68 @@
+###################################################
+#
+# Spring基础配置
+#
+###################################################
+server:
+  port: 9999
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  application:
+    name: suxia-toshow
+  banner:
+    charset: UTF-8
+  http:
+    encoding:
+      enabled: true
+      force: true
+      charset: UTF-8
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: NON_NULL
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    timeout: 0
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/idb?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&autoReconnect=true&useSSL=false&serverTimezone=GMT%2B8
+    password: root
+    username: root
+    type: com.alibaba.druid.pool.DruidDataSource
+    #druid相关配置
+    druid:
+      #监控统计拦截的filters
+      filters: stat,log4j2
+      #配置初始化大小/最小/最大
+      initialSize: 1
+      minIdle: 1
+      maxActive: 20
+      #获取连接等待超时时间
+      maxWait: 60000
+      #间隔多久进行一次检测，检测需要关闭的空闲连接
+      timeBetweenEvictionRunsMillis: 60000
+      #一个连接在池中最小生存的时间
+      minEvictableIdleTimeMillis: 300000
+      #验证连接有效与否的SQL，不同的数据配置不同
+      validationQuery: SELECT 'x'
+      #如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效
+      testWhileIdle: true
+      #这里建议配置为TRUE，防止取到的连接不可用
+      testOnBorrow: false
+      testOnReturn: false
+      #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
+      poolPreparedStatements: false
+      maxPoolPreparedStatementPerConnectionSize: 20
+      #这里配置提交方式，默认就是TRUE，可以不用配置
+      default-auto-commit: true
+      #合并多个DruidDataSource的监控数据
+      useGlobalDataSourceStat: true
+
+logging:
+  path: ../suxia-toshow/logs
+  level:
+    root: error
+    org.springframework: info

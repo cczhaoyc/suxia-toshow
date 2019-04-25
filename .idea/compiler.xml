@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="suxia-toshow-webapp" />
+        <module name="suxia-toshow-service" />
+        <module name="suxia-toshow-common" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="suxia-toshow" target="1.8" />
+      <module name="suxia-toshow-common" target="1.8" />
+      <module name="suxia-toshow-service" target="1.8" />
+      <module name="suxia-toshow-webapp" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="suxia-toshow" options="" />
+      <module name="suxia-toshow-common" options="-parameters" />
+      <module name="suxia-toshow-service" options="-parameters" />
+      <module name="suxia-toshow-webapp" options="-parameters" />
+    </option>
+  </component>
+</project>
